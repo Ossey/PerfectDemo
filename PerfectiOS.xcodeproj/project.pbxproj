@@ -9,19 +9,31 @@
 /* Begin PBXBuildFile section */
 		D2A406CD1FDC1E7200C5DBF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406CC1FDC1E7200C5DBF2 /* AppDelegate.swift */; };
 		D2A406CF1FDC1E7200C5DBF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406CE1FDC1E7200C5DBF2 /* ViewController.swift */; };
-		D2A406D21FDC1E7200C5DBF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A406D01FDC1E7200C5DBF2 /* Main.storyboard */; };
 		D2A406D41FDC1E7200C5DBF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A406D31FDC1E7200C5DBF2 /* Assets.xcassets */; };
 		D2A406D71FDC1E7200C5DBF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A406D51FDC1E7200C5DBF2 /* LaunchScreen.storyboard */; };
+		D2A406E01FDC21C000C5DBF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406DE1FDC21C000C5DBF2 /* LoginViewController.swift */; };
+		D2A406E31FDC222C00C5DBF2 /* OSGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406E21FDC222C00C5DBF2 /* OSGradientView.swift */; };
+		D2A406E51FDC245C00C5DBF2 /* OSSocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406E41FDC245C00C5DBF2 /* OSSocialButton.swift */; };
+		D2A406E91FDC282500C5DBF2 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406E81FDC282500C5DBF2 /* UIView+Animation.swift */; };
+		D2A406EB1FDC290800C5DBF2 /* OSConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406EA1FDC290800C5DBF2 /* OSConstans.swift */; };
+		D2A406ED1FDC2F1C00C5DBF2 /* OSThinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A406EC1FDC2F1C00C5DBF2 /* OSThinTextField.swift */; };
+		D2A406F01FDC381100C5DBF2 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A406EF1FDC381100C5DBF2 /* LoginViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D2A406C91FDC1E7200C5DBF2 /* PerfectiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerfectiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A406CC1FDC1E7200C5DBF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2A406CE1FDC1E7200C5DBF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2A406D11FDC1E7200C5DBF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2A406D31FDC1E7200C5DBF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A406D61FDC1E7200C5DBF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A406D81FDC1E7200C5DBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A406DE1FDC21C000C5DBF2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D2A406E21FDC222C00C5DBF2 /* OSGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSGradientView.swift; sourceTree = "<group>"; };
+		D2A406E41FDC245C00C5DBF2 /* OSSocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSSocialButton.swift; sourceTree = "<group>"; };
+		D2A406E81FDC282500C5DBF2 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		D2A406EA1FDC290800C5DBF2 /* OSConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSConstans.swift; sourceTree = "<group>"; };
+		D2A406EC1FDC2F1C00C5DBF2 /* OSThinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSThinTextField.swift; sourceTree = "<group>"; };
+		D2A406EF1FDC381100C5DBF2 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +68,13 @@
 			children = (
 				D2A406CC1FDC1E7200C5DBF2 /* AppDelegate.swift */,
 				D2A406CE1FDC1E7200C5DBF2 /* ViewController.swift */,
-				D2A406D01FDC1E7200C5DBF2 /* Main.storyboard */,
+				D2A406DE1FDC21C000C5DBF2 /* LoginViewController.swift */,
+				D2A406EF1FDC381100C5DBF2 /* LoginViewController.storyboard */,
+				D2A406E21FDC222C00C5DBF2 /* OSGradientView.swift */,
+				D2A406E41FDC245C00C5DBF2 /* OSSocialButton.swift */,
+				D2A406EC1FDC2F1C00C5DBF2 /* OSThinTextField.swift */,
+				D2A406E81FDC282500C5DBF2 /* UIView+Animation.swift */,
+				D2A406EA1FDC290800C5DBF2 /* OSConstans.swift */,
 				D2A406D31FDC1E7200C5DBF2 /* Assets.xcassets */,
 				D2A406D51FDC1E7200C5DBF2 /* LaunchScreen.storyboard */,
 				D2A406D81FDC1E7200C5DBF2 /* Info.plist */,
@@ -124,8 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A406D71FDC1E7200C5DBF2 /* LaunchScreen.storyboard in Resources */,
+				D2A406F01FDC381100C5DBF2 /* LoginViewController.storyboard in Resources */,
 				D2A406D41FDC1E7200C5DBF2 /* Assets.xcassets in Resources */,
-				D2A406D21FDC1E7200C5DBF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +154,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A406E51FDC245C00C5DBF2 /* OSSocialButton.swift in Sources */,
+				D2A406E01FDC21C000C5DBF2 /* LoginViewController.swift in Sources */,
 				D2A406CF1FDC1E7200C5DBF2 /* ViewController.swift in Sources */,
+				D2A406ED1FDC2F1C00C5DBF2 /* OSThinTextField.swift in Sources */,
+				D2A406E31FDC222C00C5DBF2 /* OSGradientView.swift in Sources */,
+				D2A406E91FDC282500C5DBF2 /* UIView+Animation.swift in Sources */,
+				D2A406EB1FDC290800C5DBF2 /* OSConstans.swift in Sources */,
 				D2A406CD1FDC1E7200C5DBF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,14 +168,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D2A406D01FDC1E7200C5DBF2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2A406D11FDC1E7200C5DBF2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2A406D51FDC1E7200C5DBF2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -281,7 +297,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ossey.PerfectiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -297,7 +313,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ossey.PerfectiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
