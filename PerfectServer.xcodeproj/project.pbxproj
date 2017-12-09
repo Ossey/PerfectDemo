@@ -20,7 +20,7 @@
 		OBJ_425 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_340 /* Package.swift */; };
 		OBJ_431 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_342 /* Package.swift */; };
 		OBJ_437 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_358 /* Package.swift */; };
-		OBJ_443 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* DataBaseManager.swift */; };
+		OBJ_443 /* DataBaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* DataBaseHelper.swift */; };
 		OBJ_444 /* NetworkServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* NetworkServerManager.swift */; };
 		OBJ_445 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* main.swift */; };
 		OBJ_447 /* PerfectMustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PerfectMustache::PerfectMustache::Product" /* PerfectMustache.framework */; };
@@ -942,7 +942,7 @@
 		OBJ_77 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		OBJ_78 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		OBJ_79 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
-		OBJ_8 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		OBJ_8 /* DataBaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseHelper.swift; sourceTree = "<group>"; };
 		OBJ_80 /* MimeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeReader.swift; sourceTree = "<group>"; };
 		OBJ_81 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		OBJ_82 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
@@ -1593,7 +1593,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* DataBaseManager.swift */,
+				OBJ_8 /* DataBaseHelper.swift */,
 				D2A4069B1FDBDB0900C5DBF2 /* DataBaseConnect.swift */,
 				OBJ_9 /* NetworkServerManager.swift */,
 				OBJ_10 /* main.swift */,
@@ -2186,7 +2186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_443 /* DataBaseManager.swift in Sources */,
+				OBJ_443 /* DataBaseHelper.swift in Sources */,
 				OBJ_444 /* NetworkServerManager.swift in Sources */,
 				OBJ_445 /* main.swift in Sources */,
 				D2A4069D1FDBDB1E00C5DBF2 /* DataBaseConnect.swift in Sources */,

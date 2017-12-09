@@ -70,14 +70,12 @@ class DataBaseConnect {
         }
         
         let connected = connect.connect(host: "\(host)", user: username, password: password)
-        guard connected else {// 验证一下连接是否成功
-//            LogFile.error(connect.errorMessage())
+        guard connected else {
+            // 验证一下连接是否成功
             print("MySQL连接失败" + connect.errorMessage())
             return
         }
         print("MySQL连接成功")
-        
-//        LogFile.info("数据库连接成功")
     }
     
     
@@ -87,13 +85,14 @@ class DataBaseConnect {
     func selectDataBase(name: String){
         // 选择具体的数据Schema
         guard connect.selectDatabase(named: name) else {
-//            LogFile.error("数据库选择失败。错误代码：\(connect.errorCode()) 错误解释：\(connect.errorMessage())")
+            print("数据库选择失败。错误代码：\(connect.errorCode()) 错误解释：\(connect.errorMessage())")
             return
         }
         
-//        LogFile.info("连接Schema：\(name)成功")
+        print("连接Schema：\(name)成功")
     }
     
     deinit {
+        
     }
 }
