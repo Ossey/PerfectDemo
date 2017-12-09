@@ -1,9 +1,8 @@
 //
-//  main.swift
-//  PerfectTemplate
+//  XCTestManifests.swift
 //
-//  Created by Kyle Jessup on 2015-11-05.
-//	Copyright (C) 2015 PerfectlySoft, Inc.
+//  Created by Kyle Jessup on 2015-10-19.
+//  Copyright © 2015 PerfectlySoft. All rights reserved.
 //
 //===----------------------------------------------------------------------===//
 //
@@ -17,4 +16,12 @@
 //===----------------------------------------------------------------------===//
 //
 
+import XCTest
 
+#if !os(OSX)
+public func allTests() -> [XCTestCaseEntry] {
+	return [
+			testCase(PerfectLibTests.allTests)
+	]
+}
+#endif
