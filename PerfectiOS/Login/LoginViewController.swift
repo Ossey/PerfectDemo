@@ -12,7 +12,7 @@ enum LoginViewControllerPageType {
     case Login
     case Register
     
-    public func title() -> String {
+    public func description() -> String {
         switch self {
         case .Login:
             return "登录"
@@ -69,7 +69,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         view.addGestureRecognizer(tap)
         
-        buttonLogin .setTitle(pageType.title(), for: .normal)
+        buttonLogin .setTitle(pageType.description(), for: .normal)
     }
     
     //MARK: - UITextFieldDelegate
@@ -115,10 +115,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func doLoginOrRegister(_ sender: UIButton) {
         switch pageType {
         case .Login:
-            print("登录")
+            doLogin()
         case .Register:
-            print("注册")
+            doRegister()
         }
+    }
+    
+    func doLogin() -> Void {
+        print("登录")
+        UserInfoAPI.shared.requestUserInfo(accountName: "k8882") { (user, error) in
+            print(error)
+        }
+    }
+    
+    func doRegister() -> Void {
+        print("注册")
     }
     
     

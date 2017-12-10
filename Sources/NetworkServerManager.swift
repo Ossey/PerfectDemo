@@ -15,6 +15,7 @@ open class NetworkServerManager {
         configure(routes: &routes)
         // 将路由添加到服务
         server.addRoutes(routes)
+        server.serverAddress = "localhost"
         // 设置服务端口
         server.serverPort = port
         // 设置根目录
@@ -42,13 +43,13 @@ open class NetworkServerManager {
     fileprivate func configure(routes: inout Routes) {
         
         // 根据用户名查询用户ID
-        routes.add(method: .post, uri: "/queryUserInfoByUserName") { (request, response) in
-            guard let userName: String = request.param(name: "userName") else {
-                print("userName为nil")
+        routes.add(method: .post, uri: "/queryUserInfoByUserID") { (request, response) in
+            guard let userId: String = request.param(name: "userId") else {
+                print("userId为nil")
                 return
             }
-            guard let json = UserDao().queryUserInfo(userName: userName) else {
-                print("josn为nil")
+            guard let json = UserDao().queryUserInfo(userId: userId) else {
+                print("userId为nil")
                 return
             }
             print(json)
@@ -78,15 +79,15 @@ open class NetworkServerManager {
         
         // 登录
         routes.add(method: .post, uri: "/login") { (request, response) in
-            guard let userName: String = request.param(name: "userName") else {
-                print("userName为nil")
+            guard let userId: String = request.param(name: "userId") else {
+                print("userId为nil")
                 return
             }
             guard let password: String = request.param(name: "password") else {
                 print("password为nil")
                 return
             }
-            guard let json = UserDao().queryUserInfo (userName: userName, password: password) else {
+            guard let json = UserDao().queryUserInfo (userId: userId, password: password) else {
                 print("josn为nil")
                 return
             }

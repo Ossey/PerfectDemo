@@ -9,7 +9,6 @@ import PerfectMySQL
 
 // MARK: 数据库信息
 let mysql_database = "PerfecDemo"
-let table_account = "account_level"
 
 let REQUEST_RESULT_SUCCESS_VALUE: String = "success"
 let REQUEST_RESULT_FAILURE_VALUE: String = "failure"
@@ -141,12 +140,12 @@ class BaseDao {
 class UserDao: BaseDao {
     let tableName = "user"
     
-    /// 根据用户名查询用户信息
+    /// 根据用户id查询用户信息
     ///
-    /// - Parameter userName: 用户名
+    /// - Parameter userId: 用户名
     /// - Returns: 返回JSON数据
-    func queryUserInfo(userName: String) -> String? {
-        let statement = "select userId, nickname from user where username = '\(userName)'"
+    func queryUserInfo(userId: String) -> String? {
+        let statement = "select userName, userId from user where userId = '\(userId)'"
 
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
         
@@ -161,11 +160,11 @@ class UserDao: BaseDao {
             var dic = [String:String]()
             // 创建一个字典数组用于存储结果
             results.forEachRow { row in
-                guard let userId = row.first! else {//保存选项表的Name名称字段，应该是所在行的第一列，所以是row[0].
+                guard let userName = row.first! else {//保存选项表的Name名称字段，应该是所在行的第一列，所以是row[0].
                     return
                 }
-                dic["userId"] = "\(userId)"
-                dic["userName"] = "\(row[1]!)"
+                dic["userName"] = "\(userName)"
+                dic["userId"] = "\(row[1]!)"
             }
             
             response[REQUEST_RESULT_KEY] = REQUEST_RESULT_SUCCESS_VALUE
@@ -178,14 +177,14 @@ class UserDao: BaseDao {
         return josn
     }
     
-    /// 由用户名和密码查询用户信息
+    /// 由userId和密码查询用户信息
     ///
     /// - Parameters:
-    ///   - userName: 用户名
+    ///   - userId: 用户名
     ///   - password: 用户密码
     /// - Returns:
-    func queryUserInfo(userName: String, password: String) -> String? {
-        let statement = "select * from user where nickname='\(userName)' and password='\(password)'"
+    func queryUserInfo(userId: String, password: String) -> String? {
+        let statement = "select * from user where userId='\(userId)' and password='\(password)'"
         
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
         
@@ -288,8 +287,12 @@ class UserDao: BaseDao {
     ///   - userName: 用户名
     ///   - password: 密码
     func insertUserInfo(userName: String, password: String) -> String? {
-        let values = "('\(userName)', '\(password)')"
-        let statement = "insert into \(tableName) (nickname, password) values \(values)"
+        
+        // userId 应该随机生成，暂时先不做
+        let userId = userName
+        let values = "('\(userName)', '\(password)', '\(userId)')"
+        let statement = "insert into \(tableName) (userName, password, userId) values \(values)"
+        
         print("执行SQL:\(statement)")
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
         if !DataBaseHelper.instance.mysql.query(statement: statement) {
@@ -302,7 +305,7 @@ class UserDao: BaseDao {
             return josn
         } else {
             print("插入成功")
-            return queryUserInfo(userName: userName, password: password)
+            return queryUserInfo(userId: userId, password: password)
         }
     }
     
