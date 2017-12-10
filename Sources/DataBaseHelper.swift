@@ -160,11 +160,14 @@ class UserDao: BaseDao {
             var dic = [String:String]()
             // 创建一个字典数组用于存储结果
             results.forEachRow { row in
-                guard let userName = row.first! else {//保存选项表的Name名称字段，应该是所在行的第一列，所以是row[0].
-                    return
+                if let userName = row[1] {
+                    //表的userName字段，应该是所在行的第一列，所以是row[1].
+                    dic["userName"] = "\(userName)"
                 }
-                dic["userName"] = "\(userName)"
-                dic["userId"] = "\(row[1]!)"
+                
+                if let userId = row[3] {
+                    dic["userId"] = "\(userId)"
+                }
             }
             
             response[REQUEST_RESULT_KEY] = REQUEST_RESULT_SUCCESS_VALUE
@@ -205,12 +208,17 @@ class UserDao: BaseDao {
                 print("\(statement)用户名或密码错误，请重新输入")
             } else {
                 results.forEachRow { row in
-                    guard let userId = row.first! else {//保存选项表的Name名称字段，应该是所在行的第一列，所以是row[0].
-                        return
+                    if let userName = row[1] {
+                        //表的userName字段，应该是所在行的第一列，所以是row[1].
+                        dic["userName"] = "\(userName)"
                     }
-                    dic["userId"] = "\(userId)"
-                    dic["userName"] = "\(row[1]!)"
-                    dic["registerTime"] = "\(row[3]!)"
+                    if let userId = row[3] {
+                        dic["userId"] = "\(userId)"
+                    }
+                    
+                    if let registerTime = row[4] {
+                        dic["registerTime"] = "\(registerTime)"
+                    }
                 }
                 
                 response[REQUEST_RESULT_KEY] = REQUEST_RESULT_SUCCESS_VALUE
@@ -349,7 +357,7 @@ class MomentDao: BaseDao {
     /// - Parameter userId: 用户ID
     /// - Returns: 返回JSON
     func queryMomentList(userId: String) -> String? {
-        let statement = "select id, title, content, create_time from \(tableName) where userID='\(userId)'"
+        let statement = "select id, title, content, userId, create_time from \(tableName) where userId ='\(userId)'"
         print("执行SQL:\(statement)")
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
         if !DataBaseHelper.instance.mysql.query(statement: statement) {
@@ -371,7 +379,8 @@ class MomentDao: BaseDao {
                     dic["momentId"] = "\(row[0]!)"
                     dic["title"] = "\(row[1]!)"
                     dic["content"] = "\(row[2]!)"
-                    dic["time"] = "\(row[3]!)"
+                    dic["userId"] = "\(row[3]!)"
+                    dic["create_time"] = "\(row[4]!)"
                     ary.append(dic)
                 }
                 response[REQUEST_RESULT_LIST_KEY] = ary

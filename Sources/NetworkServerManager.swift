@@ -69,27 +69,49 @@ open class NetworkServerManager {
                 print("password为nil")
                 return
             }
-            guard let json = UserDao().insertUserInfo(userName: userName, password: password) else {
-                print("josn为nil")
-                return
-            }
-            print(json)
-            response.setBody(string: json)
-            response.completed()
-        }
-        
-        // 登录
-        routes.add(method: .post, uri: "/login") { (request, response) in
+            
             guard let userId: String = request.param(name: "userId") else {
                 print("userId为nil")
                 return
             }
-            guard let password: String = request.param(name: "password") else {
-                print("password为nil")
+            
+            // 注册前先查询，账号是否存在，如果存在则告诉用户，不执行注册
+            let json = UserDao().queryUserInfo(userId: userId, password: password)
+            if json != nil  {
+                response.setBody(string: "用户已存在")
+                response.completed()
                 return
             }
-            guard let json = UserDao().queryUserInfo (userId: userId, password: password) else {
-                print("josn为nil")
+            
+            // 注册
+            guard let registerResult = UserDao().insertUserInfo(userName: userName, password: password) else {
+                print("registerJosn为nil")
+                response.setBody(string: "服务器未返回")
+                response.completed()
+                return
+            }
+            print(registerResult)
+            response.setBody(string: registerResult)
+            response.completed()
+        }
+        
+        // 根据userId和密码登录
+        routes.add(method: .post, uri: "/login") { (request, response) in
+            guard let userId: String = request.param(name: "userId") else {
+                print("userId为nil")
+                response.setBody(string: "userId不能为空")
+                response.completed()
+                return
+            }
+            guard let password: String = request.param(name: "password") else {
+                print("password为nil")
+                response.setBody(string: "密码不能为空")
+                response.completed()
+                return
+            }
+            guard let json = UserDao().queryUserInfo(userId: userId, password: password) else {
+                response.setBody(string: "用户名或密码错误")
+                response.completed()
                 return
             }
             print(json)
@@ -97,15 +119,19 @@ open class NetworkServerManager {
             response.completed()
         }
 
-        // 获取内容列表
-        routes.add(method: .post, uri: "/contentList") { (request, response) in
+        // 获取moment列表
+        routes.add(method: .post, uri: "/momentList") { (request, response) in
             guard let userId: String = request.param(name: "userId") else {
                 print("userId为nil")
+                response.setBody(string: "userId不存在")
+                response.completed()
                 return
             }
             
             guard let json = MomentDao().queryMomentList(userId: userId) else {
                 print("josn为nil")
+                response.setBody(string: "服务器未返回")
+                response.completed()
                 return
             }
             print(json)
@@ -121,6 +147,8 @@ open class NetworkServerManager {
             }
             guard let json = MomentDao().queryMomentDetail(momentId: momentId) else {
                 print("josn为nil")
+                response.setBody(string: "服务器未返回")
+                response.completed()
                 return
             }
             print(json)

@@ -15,7 +15,6 @@
 		D2A4073E1FDCEBFA00C5DBF2 /* OSGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407331FDCEBF900C5DBF2 /* OSGradientView.swift */; };
 		D2A4073F1FDCEBFA00C5DBF2 /* OSSocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407341FDCEBF900C5DBF2 /* OSSocialButton.swift */; };
 		D2A407401FDCEBFA00C5DBF2 /* OSThinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407351FDCEBF900C5DBF2 /* OSThinTextField.swift */; };
-		D2A407411FDCEBFA00C5DBF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407361FDCEBF900C5DBF2 /* ViewController.swift */; };
 		D2A407421FDCEBFA00C5DBF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407381FDCEBFA00C5DBF2 /* AppDelegate.swift */; };
 		D2A407431FDCEBFA00C5DBF2 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A4073A1FDCEBFA00C5DBF2 /* SwiftNotice.swift */; };
 		D2A407461FDCEC3B00C5DBF2 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407451FDCEC3B00C5DBF2 /* UIView+Animation.swift */; };
@@ -23,6 +22,10 @@
 		D2A4074C1FDCF6B800C5DBF2 /* HttpRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A4074B1FDCF6B800C5DBF2 /* HttpRequestHelper.swift */; };
 		D2A4074E1FDCFEA900C5DBF2 /* OSConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A4074D1FDCFEA900C5DBF2 /* OSConstans.swift */; };
 		D2A407511FDD016600C5DBF2 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407501FDD016600C5DBF2 /* UserItem.swift */; };
+		D2A407531FDD443700C5DBF2 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407521FDD443700C5DBF2 /* AccountManager.swift */; };
+		D2A407561FDD606100C5DBF2 /* MomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407551FDD606100C5DBF2 /* MomentViewController.swift */; };
+		D2A407581FDD654700C5DBF2 /* MomentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407571FDD654700C5DBF2 /* MomentAPI.swift */; };
+		D2A4075A1FDD681800C5DBF2 /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A407591FDD681800C5DBF2 /* Moment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +39,6 @@
 		D2A407331FDCEBF900C5DBF2 /* OSGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSGradientView.swift; sourceTree = "<group>"; };
 		D2A407341FDCEBF900C5DBF2 /* OSSocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSSocialButton.swift; sourceTree = "<group>"; };
 		D2A407351FDCEBF900C5DBF2 /* OSThinTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSThinTextField.swift; sourceTree = "<group>"; };
-		D2A407361FDCEBF900C5DBF2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2A407381FDCEBFA00C5DBF2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2A4073A1FDCEBFA00C5DBF2 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		D2A407451FDCEC3B00C5DBF2 /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
@@ -44,6 +46,10 @@
 		D2A4074B1FDCF6B800C5DBF2 /* HttpRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHelper.swift; sourceTree = "<group>"; };
 		D2A4074D1FDCFEA900C5DBF2 /* OSConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSConstans.swift; sourceTree = "<group>"; };
 		D2A407501FDD016600C5DBF2 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
+		D2A407521FDD443700C5DBF2 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		D2A407551FDD606100C5DBF2 /* MomentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentViewController.swift; sourceTree = "<group>"; };
+		D2A407571FDD654700C5DBF2 /* MomentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentAPI.swift; sourceTree = "<group>"; };
+		D2A407591FDD681800C5DBF2 /* Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		EC760B39BDB9CCB0BD6F6DF0 /* Pods-PerfectiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectiOS/Pods-PerfectiOS.release.xcconfig"; sourceTree = "<group>"; };
 		FDED0EB7741CD16FC96183CF /* Pods-PerfectiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerfectiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerfectiOS/Pods-PerfectiOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +104,7 @@
 		D2A406CB1FDC1E7200C5DBF2 /* PerfectiOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2A407541FDD605200C5DBF2 /* Moment */,
 				D2A4074F1FDD013000C5DBF2 /* Model */,
 				D2A407481FDCF37100C5DBF2 /* HttpApi */,
 				D2A407441FDCEC3B00C5DBF2 /* Category */,
@@ -119,7 +126,6 @@
 				D2A407331FDCEBF900C5DBF2 /* OSGradientView.swift */,
 				D2A407341FDCEBF900C5DBF2 /* OSSocialButton.swift */,
 				D2A407351FDCEBF900C5DBF2 /* OSThinTextField.swift */,
-				D2A407361FDCEBF900C5DBF2 /* ViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -138,6 +144,7 @@
 			children = (
 				D2A4073A1FDCEBFA00C5DBF2 /* SwiftNotice.swift */,
 				D2A4074B1FDCF6B800C5DBF2 /* HttpRequestHelper.swift */,
+				D2A407521FDD443700C5DBF2 /* AccountManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -154,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A407491FDCF39400C5DBF2 /* UserInfoAPI.swift */,
+				D2A407571FDD654700C5DBF2 /* MomentAPI.swift */,
 			);
 			path = HttpApi;
 			sourceTree = "<group>";
@@ -162,8 +170,17 @@
 			isa = PBXGroup;
 			children = (
 				D2A407501FDD016600C5DBF2 /* UserItem.swift */,
+				D2A407591FDD681800C5DBF2 /* Moment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D2A407541FDD605200C5DBF2 /* Moment */ = {
+			isa = PBXGroup;
+			children = (
+				D2A407551FDD606100C5DBF2 /* MomentViewController.swift */,
+			);
+			path = Moment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,14 +312,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A407411FDCEBFA00C5DBF2 /* ViewController.swift in Sources */,
 				D2A4073F1FDCEBFA00C5DBF2 /* OSSocialButton.swift in Sources */,
 				D2A4074E1FDCFEA900C5DBF2 /* OSConstans.swift in Sources */,
 				D2A407461FDCEC3B00C5DBF2 /* UIView+Animation.swift in Sources */,
+				D2A407561FDD606100C5DBF2 /* MomentViewController.swift in Sources */,
 				D2A407431FDCEBFA00C5DBF2 /* SwiftNotice.swift in Sources */,
 				D2A4074C1FDCF6B800C5DBF2 /* HttpRequestHelper.swift in Sources */,
 				D2A4074A1FDCF39400C5DBF2 /* UserInfoAPI.swift in Sources */,
 				D2A4073E1FDCEBFA00C5DBF2 /* OSGradientView.swift in Sources */,
+				D2A4075A1FDD681800C5DBF2 /* Moment.swift in Sources */,
+				D2A407581FDD654700C5DBF2 /* MomentAPI.swift in Sources */,
+				D2A407531FDD443700C5DBF2 /* AccountManager.swift in Sources */,
 				D2A407421FDCEBFA00C5DBF2 /* AppDelegate.swift in Sources */,
 				D2A4073C1FDCEBFA00C5DBF2 /* LoginViewController.swift in Sources */,
 				D2A407401FDCEBFA00C5DBF2 /* OSThinTextField.swift in Sources */,

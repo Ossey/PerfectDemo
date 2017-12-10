@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var viewController: UIViewController
         
         if userInfo != nil {
-            viewController = UINavigationController.init(rootViewController: ViewController())
+            viewController = UINavigationController.init(rootViewController: MomentViewController())
         }
         else {
             viewController = UIStoryboard.init(name: "LoginViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController")

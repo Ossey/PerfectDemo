@@ -14,9 +14,9 @@ let NetworkTimeoutInterval:Double = 10
 
 @objc protocol HttpRequestDelegate: NSObjectProtocol {
     
-    @objc optional func httpRequestDidSuccess(request: AnyObject, requestName: String, parameters: NSDictionary?)
+    @objc optional func httpRequestDidSuccess(request: AnyObject?, requestName: String, parameters: NSDictionary?)
     
-    @objc optional func httpRequestDidFailure(request: AnyObject, requestName: String, parameters: NSDictionary?, error: Error)
+    @objc optional func httpRequestDidFailure(request: AnyObject?, requestName: String, parameters: NSDictionary?, error: Error)
 }
 
 class HttpRequestHelper: NSObject {
@@ -32,7 +32,7 @@ class HttpRequestHelper: NSObject {
     ///   - url: 请求的url，可以是String，也可以是URL
     ///   - parameters: 请求参数
     ///   - finishedCallBack: 完成请求的回调
-    class func request(method: HTTPMethod, url: String, parameters: NSDictionary?, finishedCallBack: @escaping (_ result: AnyObject, _ _error: Error?) -> ()) {
+    class func request(method: HTTPMethod, url: String, parameters: NSDictionary?, finishedCallBack: @escaping (_ result: AnyObject?, _ _error: Error?) -> ()) {
         
         let config:URLSessionConfiguration = URLSessionConfiguration.default
         

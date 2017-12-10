@@ -123,8 +123,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func doLogin() -> Void {
         print("登录")
-        UserInfoAPI.shared.requestUserInfo(accountName: "k8882") { (user, error) in
-            print(error)
+        guard let userId = accountNameTF.text else {
+            self.errorNotice("用户名不能空")
+            return
+        }
+        guard let password = passwordTF.text else {
+            self.errorNotice("密码不能空")
+            return
+        }
+        
+        UserInfoAPI.shared.login(userId: userId, password: password) { (response, error) in
+            
+            guard error == nil else {
+                self.errorNotice("登录失败")
+                return
+            }
+            
+            let user = response as! UserItem
+            print(user.userName)
+            self.successNotice("登录成功: \(user.userName)")
         }
     }
     

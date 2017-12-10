@@ -10,9 +10,7 @@ import Foundation
 
 // 存储登录用户信息的key，如果此key获取的value为nil则说明用户未登录
 let LoginUserInfoKey = "LoginUserInfoKey"
-let BaseURLString = "http://localhost:9999"
-let QueryUserInfoByUserID = "/queryUserInfoByUserID"    //通过用户名查询用户信息
-let QueryAccount = "/account" // 测试
+let HTTPRequestBaseURLString = "http://localhost:9999"
 
 
 struct OSConstans {
@@ -21,6 +19,19 @@ struct OSConstans {
             return 0.36
         }
     }
-
+    
+    
+    struct HttpRequestURL {
+        // 测试
+        let account = "\(HTTPRequestBaseURLString)" + "/account"
+        // 登录
+        let login = "\(HTTPRequestBaseURLString)" + "/login"
+        // 注册
+        let register = "\(HTTPRequestBaseURLString)" + "/register"
+        let queryUserInfoByUserID = "\(HTTPRequestBaseURLString)" + "/queryUserInfoByUserID"
+        // moment列表
+        let momentList = "\(HTTPRequestBaseURLString)" + "/momentList"
+        
+    }
     
 }

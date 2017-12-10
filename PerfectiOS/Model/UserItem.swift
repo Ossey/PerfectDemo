@@ -8,7 +8,24 @@
 
 import Foundation
 
-class UserItem {
+class UserItem: NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(userId, forKey: "userId")
+        aCoder.encode(userName, forKey: "userName")
+        aCoder.encode(registerDate, forKey: "registerDate")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        userId = aDecoder.decodeObject(forKey: "userId") as! String
+        userName = aDecoder.decodeObject(forKey: "userName") as! String
+        registerDate = aDecoder.decodeObject(forKey: "registerDate") as! String
+    }
+    
+    override init() {
+        super.init()
+    }
+    
     
     public var userId: String = ""
     public var userName: String = ""
