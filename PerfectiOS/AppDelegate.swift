@@ -20,16 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userInfo = UserDefaults.standard.object(forKey: LoginUserInfoKey)
         
-        var rootViewController: UIViewController
+        var viewController: UIViewController
         
         if userInfo != nil {
-            rootViewController = ViewController()
+            viewController = UINavigationController.init(rootViewController: ViewController())
         }
         else {
-            rootViewController = UIStoryboard.init(name: "LoginViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController")
+            viewController = UIStoryboard.init(name: "LoginViewController", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController")
         }
         
-        self.window?.rootViewController = rootViewController
+        self.window?.rootViewController = viewController
         
         self.window?.makeKeyAndVisible()
         

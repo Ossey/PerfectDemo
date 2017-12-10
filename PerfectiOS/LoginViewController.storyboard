@@ -21,8 +21,8 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="gJ9-o8-Puj" customClass="LoginViewController" customModule="PerfectiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KoG-aD-C5t"/>
-                        <viewControllerLayoutGuide type="bottom" id="QnF-Ef-hLz"/>
+                        <viewControllerLayoutGuide type="top" id="wxx-Cg-2Qu"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Ao-jQ-8lh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DFI-Uh-K3q" customClass="OSGradientView" customModule="PerfectiOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -70,7 +70,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="用户名" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="EiK-hV-R0l" customClass="OSThinTextField" customModule="PerfectiOS" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="请输入账号" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="EiK-hV-R0l" customClass="OSThinTextField" customModule="PerfectiOS" customModuleProvider="target">
                                 <rect key="frame" x="83.5" y="198" width="208" height="26"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -86,7 +86,7 @@
                                     <outlet property="delegate" destination="gJ9-o8-Puj" id="WPi-cO-bbp"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="密码" textAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="rpa-pT-Dka" customClass="OSThinTextField" customModule="PerfectiOS" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="请输入密码" textAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="rpa-pT-Dka" customClass="OSThinTextField" customModule="PerfectiOS" customModuleProvider="target">
                                 <rect key="frame" x="83.5" y="244" width="208" height="26"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -114,6 +114,9 @@
                                         <integer key="value" value="19"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doLoginOrRegister:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="PCf-hH-fGm"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rM-87-3aM">
                                 <rect key="frame" x="103.5" y="314" width="168" height="38"/>
@@ -138,7 +141,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="useSocial:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="Bt2-eV-H2g"/>
+                                            <action selector="doAuthorizedLogin:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="tQ8-xx-w4O"/>
                                             <outlet property="layoutConstraintLeadingSpace" destination="cr3-Yg-qZD" id="vx5-5j-ywY"/>
                                             <outlet property="layoutConstraintWidth" destination="s5r-T2-6X5" id="bYq-eg-0tB"/>
                                         </connections>
@@ -163,7 +166,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="useSocial:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="yOG-Al-8bc"/>
+                                            <action selector="doAuthorizedLogin:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="56C-Af-6KF"/>
                                             <outlet property="layoutConstraintLeadingSpace" destination="Cli-Oo-ebk" id="tWu-b0-9fT"/>
                                             <outlet property="layoutConstraintWidth" destination="xJP-Nx-ZXb" id="Dvc-8N-CFT"/>
                                         </connections>
@@ -188,7 +191,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="useSocial:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="9te-7x-6sa"/>
+                                            <action selector="doAuthorizedLogin:" destination="gJ9-o8-Puj" eventType="touchUpInside" id="QdL-Xd-8v1"/>
                                             <outlet property="layoutConstraintWidth" destination="Blj-aN-gPp" id="Trh-TL-CBs"/>
                                         </connections>
                                     </button>
@@ -242,18 +245,19 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <navigationItem key="navigationItem" id="G7p-OR-Svh"/>
                     <connections>
+                        <outlet property="accountNameTF" destination="EiK-hV-R0l" id="IdB-Sk-0tF"/>
                         <outlet property="buttonLogin" destination="odp-7d-ylY" id="VWG-nr-4RF"/>
-                        <outlet property="imageViewUserPhoto" destination="fV8-TJ-kFb" id="aBe-c0-oUR"/>
                         <outlet property="labelUserName" destination="i93-Bd-3Cv" id="o7V-KP-l3n"/>
-                        <outlet property="textFieldEmail" destination="EiK-hV-R0l" id="6jl-vs-6ol"/>
-                        <outlet property="textFieldPassw" destination="rpa-pT-Dka" id="8QO-O5-HUm"/>
+                        <outlet property="passwordTF" destination="rpa-pT-Dka" id="f9b-kL-FYQ"/>
+                        <outlet property="userIconView" destination="fV8-TJ-kFb" id="vFF-y3-hqS"/>
                         <outlet property="viewSocialBtns" destination="6rM-87-3aM" id="qCS-lj-8Cb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eE4-qt-zS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257" y="374"/>
+            <point key="canvasLocation" x="82" y="515"/>
         </scene>
     </scenes>
     <resources>

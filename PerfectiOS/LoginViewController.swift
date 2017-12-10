@@ -8,16 +8,33 @@
 
 import UIKit
 
+enum LoginViewControllerPageType {
+    case Login
+    case Register
+    
+    public func title() -> String {
+        switch self {
+        case .Login:
+            return "登录"
+        case .Register:
+            return "注册"
+        }
+    }
+}
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var viewSocialBtns: UIView!
-    @IBOutlet weak var textFieldEmail: UITextField!
-    @IBOutlet weak var textFieldPassw: UITextField!
-    @IBOutlet weak var imageViewUserPhoto: UIImageView!
+    @IBOutlet weak var accountNameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var userIconView: UIImageView!
     @IBOutlet weak var labelUserName: UILabel!
+    
     // 记录选中的按钮
     var buttonSelected: OSSocialButton?
+    var pageType: LoginViewControllerPageType = .Login
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -41,12 +58,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageViewUserPhoto.layer.borderColor = UIColor.white.cgColor
-        imageViewUserPhoto.layer.borderWidth = 2
-        imageViewUserPhoto.layer.cornerRadius = imageViewUserPhoto.bounds.size.height / 2.0
+        setupViews()
+    }
+    
+    private func setupViews() -> Void {
+        userIconView.layer.borderColor = UIColor.white.cgColor
+        userIconView.layer.borderWidth = 2
+        userIconView.layer.cornerRadius = userIconView.bounds.size.height / 2.0
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         view.addGestureRecognizer(tap)
+        
+        buttonLogin .setTitle(pageType.title(), for: .normal)
     }
     
     //MARK: - UITextFieldDelegate
@@ -69,9 +92,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func useSocial(_ sender: OSSocialButton) {
+    @IBAction func doAuthorizedLogin(_ sender: OSSocialButton) {
         if sender.expanded {
-            // 执行登录
+            // 执行授权登录
             switch sender.tag {
             case 101:
                 print("momo")
@@ -88,6 +111,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             expandSocialButton(sender)
         }
     }
+   
+    @IBAction func doLoginOrRegister(_ sender: UIButton) {
+        switch pageType {
+        case .Login:
+            print("登录")
+        case .Register:
+            print("注册")
+        }
+    }
+    
     
     //MARK: - 处理动画的逻辑
     
@@ -103,12 +136,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         // 动画移动和隐藏/显示文本框
-        for  textField in [textFieldEmail, textFieldPassw]{
+        for  textField in [accountNameTF, passwordTF]{
             textField?.animationMoveUp(true, andHide: willBeginExpanding)
         }
         
         //动画显示/隐藏用户信息
-        imageViewUserPhoto.animationCircular(directionShow: willBeginExpanding, startTop: false)
+        userIconView.animationCircular(directionShow: willBeginExpanding, startTop: false)
         labelUserName.animationCircular(directionShow: willBeginExpanding, startTop: false)
     }
     
