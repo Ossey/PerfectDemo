@@ -13,6 +13,7 @@ let OSCircularAnimationHideWhenFinishedKey = "OSCircularAnimationHideWhenFinishe
 extension UIView: CAAnimationDelegate {
     
     //MARK: - Base animation methods
+    
     class func animationFade(directionFade fade: Bool) -> CABasicAnimation {
         let animFade = CABasicAnimation(keyPath: "opacity")
         animFade.fromValue = fade ? 1.0 : 0.0

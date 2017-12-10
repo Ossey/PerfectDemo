@@ -67,7 +67,7 @@ class OSSocialButton: UIButton {
         return true
     }
     
-    func expand () {
+    func expand() {
         self.layer.removeAllAnimations()
         self.expanded = !self.expanded
         
@@ -116,7 +116,7 @@ class OSSocialButton: UIButton {
         }
         
         if (layoutConstraintLeadingSpace != nil) {
-            layoutConstraintLeadingSpace?.priority = expanded ? 999 : 250
+            layoutConstraintLeadingSpace?.priority = UILayoutPriority(rawValue: UILayoutPriority.RawValue(expanded ? 999 : 250))
             self.layoutIfNeeded()
         }
     }

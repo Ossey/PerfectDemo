@@ -27,10 +27,10 @@ class OSThinTextField: UITextField {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = placeholderAligment
         let textFontAttributes = [
-            NSFontAttributeName: self.font!,
-            NSForegroundColorAttributeName: placeholderColor,
-            NSParagraphStyleAttributeName: paragraphStyle,
-            ] as [String : Any]
+            NSAttributedStringKey.foregroundColor: placeholderColor,
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.font: self.font!,
+            ] as [NSAttributedStringKey : Any]
         placeholder!.draw(in: rect, withAttributes: textFontAttributes)
     }    
 

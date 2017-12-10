@@ -16,6 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldPassw: UITextField!
     @IBOutlet weak var imageViewUserPhoto: UIImageView!
     @IBOutlet weak var labelUserName: UILabel!
+    // 记录选中的按钮
     var buttonSelected: OSSocialButton?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -57,7 +58,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - IBActions
     
-    func endEditing() {
+    @objc func endEditing() {
         if (buttonSelected != nil) {
             expandSocialButton(buttonSelected!)
             buttonSelected = nil
@@ -70,16 +71,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func useSocial(_ sender: OSSocialButton) {
         if sender.expanded {
-            //Do Sign In
+            // 执行登录
             switch sender.tag {
             case 101:
-                print("fb")
+                print("momo")
             case 102:
-                print("tw")
+                print("momo1")
             case 103:
-                print("q+")
+                print("wchat")
             default:
-                print("setup tags in Social buttons")
+                print("未设置tag")
             }
         }else{
             //expand
@@ -88,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //MARK: - Animation logic
+    //MARK: - 处理动画的逻辑
     
     func expandSocialButton(_ button: OSSocialButton) {
         let willBeginExpanding = !button.expanded
@@ -101,12 +102,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             btn.animationFade(directionFade: willBeginExpanding)
         }
         
-        //animated move and hide/show textFields
+        // 动画移动和隐藏/显示文本框
         for  textField in [textFieldEmail, textFieldPassw]{
             textField?.animationMoveUp(true, andHide: willBeginExpanding)
         }
         
-        //animated show/hide user profile info
+        //动画显示/隐藏用户信息
         imageViewUserPhoto.animationCircular(directionShow: willBeginExpanding, startTop: false)
         labelUserName.animationCircular(directionShow: willBeginExpanding, startTop: false)
     }
