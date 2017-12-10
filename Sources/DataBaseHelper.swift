@@ -311,19 +311,19 @@ class UserDao: BaseDao {
     
 }
 
-class ContentDao: BaseDao {
-    let tableName = "note"
+class MomentDao: BaseDao {
+    let tableName = "moment"
     
-    /// 添加比较
+    /// 添加moment
     ///
     /// - Parameters:
     ///   - userId: 用户ID
     ///   - title: 标题
     ///   - content: 内容
     /// - Returns: 返回结果JSON
-    func addContent(userId: String, title: String, content: String) -> String? {
+    func addMoment(userId: String, title: String, content: String) -> String? {
         let values = "('\(userId)', '\(title)', '\(content)')"
-        let statement = "insert into \(tableName) (userID, title, content) values \(values)"
+        let statement = "insert into \(tableName) (userId, title, content) values \(values)"
         print("执行SQL:\(statement)")
         
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
@@ -344,11 +344,11 @@ class ContentDao: BaseDao {
     }
     
     
-    /// 查询Note列表
+    /// 查询moment列表
     ///
     /// - Parameter userId: 用户ID
     /// - Returns: 返回JSON
-    func queryContentList(userId: String) -> String? {
+    func queryMomentList(userId: String) -> String? {
         let statement = "select id, title, content, create_time from \(tableName) where userID='\(userId)'"
         print("执行SQL:\(statement)")
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
@@ -364,11 +364,11 @@ class ContentDao: BaseDao {
             
             var ary = [[String:String]]() //创建一个字典数组用于存储结果
             if results.numRows() == 0 {
-                print("\(statement)尚没有录入新的Note, 请添加！")
+                print("\(statement)尚没有录入新的moment, 请添加！")
             } else {
                 results.forEachRow { row in
                     var dic = [String:String]() //创建一个字典用于存储结果
-                    dic["contentId"] = "\(row[0]!)"
+                    dic["momentId"] = "\(row[0]!)"
                     dic["title"] = "\(row[1]!)"
                     dic["content"] = "\(row[2]!)"
                     dic["time"] = "\(row[3]!)"
@@ -385,12 +385,12 @@ class ContentDao: BaseDao {
     }
     
     
-    /// 查询Note详情
+    /// 查询moment详情
     ///
-    /// - Parameter contentId: 内容ID
+    /// - Parameter momentId: 动态id
     /// - Returns: 返回相关JOSN
-    func queryContentDetail(contentId: String) -> String? {
-        let statement = "select content from \(tableName) where id='\(contentId)'"
+    func queryMomentDetail(momentId: String) -> String? {
+        let statement = "select content from \(tableName) where id='\(momentId)'"
         print("执行SQL:\(statement)")
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
         if !DataBaseHelper.instance.mysql.query(statement: statement) {
@@ -406,8 +406,8 @@ class ContentDao: BaseDao {
             var dic = [String:String]() //创建一个字典数于存储结果
             if results.numRows() == 0 {
                 response[REQUEST_RESULT_KEY] = REQUEST_RESULT_FAILURE_VALUE
-                response[REQUEST_RESULT_MESSAGE_KEY] = "获取Note详情失败！"
-                print("\(statement)获取Note详情失败！")
+                response[REQUEST_RESULT_MESSAGE_KEY] = "获取moment详情失败！"
+                print("\(statement)获取moment详情失败！")
             } else {
                 results.forEachRow { row in
                     guard let content = row.first! else {
@@ -428,15 +428,15 @@ class ContentDao: BaseDao {
     }
     
     
-    /// 更新内容
+    /// 更新moment
     ///
     /// - Parameters:
-    ///   - contentId: 更新内容的ID
+    ///   - momentId: 需要更新的momentId
     ///   - title: 标题
     ///   - content: 内容
     /// - Returns: 返回结果JSON
-    func updateContent(contentId: String, title: String, content: String) -> String? {
-        let statement = "update \(tableName) set title='\(title)', content='\(content)', create_time=now() where id='\(contentId)'"
+    func updateMoment(momentId: String, title: String, content: String) -> String? {
+        let statement = "update \(tableName) set title='\(title)', content='\(content)', create_time=now() where id='\(momentId)'"
         print("执行SQL:\(statement)")
         
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
@@ -457,12 +457,12 @@ class ContentDao: BaseDao {
     }
     
     
-    /// 删除内容
+    /// 删除moment
     ///
-    /// - Parameter contentId: 删除内容的ID
+    /// - Parameter momentId: 删除内容的ID
     /// - Returns: 返回删除结果
-    func deleteContent(contentId: String) -> String? {
-        let statement = "delete from \(tableName) where id='\(contentId)'"
+    func deleteMoment(momentId: String) -> String? {
+        let statement = "delete from \(tableName) where id='\(momentId)'"
         print("执行SQL:\(statement)")
         var response: [String: Any] = [REQUEST_RESULT_LIST_KEY: [], REQUEST_RESULT_KEY: REQUEST_RESULT_SUCCESS_VALUE, REQUEST_RESULT_MESSAGE_KEY: ""]
         if !DataBaseHelper.instance.mysql.query(statement: statement) {

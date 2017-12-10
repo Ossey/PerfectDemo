@@ -15,7 +15,8 @@ open class NetworkServerManager {
         configure(routes: &routes)
         // 将路由添加到服务
         server.addRoutes(routes)
-        server.serverAddress = "localhost"
+        // 设置ip地址
+        server.serverAddress = "0.0.0.0"
         // 设置服务端口
         server.serverPort = port
         // 设置根目录
@@ -96,14 +97,14 @@ open class NetworkServerManager {
             response.completed()
         }
 
-        //获取内容列表
+        // 获取内容列表
         routes.add(method: .post, uri: "/contentList") { (request, response) in
             guard let userId: String = request.param(name: "userId") else {
                 print("userId为nil")
                 return
             }
             
-            guard let json = ContentDao().queryContentList(userId: userId) else {
+            guard let json = MomentDao().queryMomentList(userId: userId) else {
                 print("josn为nil")
                 return
             }
@@ -112,13 +113,13 @@ open class NetworkServerManager {
             response.completed()
         }
         
-        //获取详情
-        routes.add(method: .post, uri: "/contentDetail") { (request, response) in
-            guard let contentId: String = request.param(name: "contentId") else {
-                print("contentId为nil")
+        // 获取moment详情
+        routes.add(method: .post, uri: "/momentDetail") { (request, response) in
+            guard let momentId: String = request.param(name: "momentId") else {
+                print("momentId为nil")
                 return
             }
-            guard let json = ContentDao().queryContentDetail(contentId: contentId) else {
+            guard let json = MomentDao().queryMomentDetail(momentId: momentId) else {
                 print("josn为nil")
                 return
             }
@@ -127,8 +128,8 @@ open class NetworkServerManager {
             response.completed()
         }
         
-        //添加内容
-        routes.add(method: .post, uri: "/contentAdd") { (request, response) in
+        // 添加moment
+        routes.add(method: .post, uri: "/addMoment") { (request, response) in
             guard let userId: String = request.param(name: "userId") else {
                 print("userId为nil")
                 return
@@ -144,7 +145,7 @@ open class NetworkServerManager {
                 return
             }
             
-            guard let json = ContentDao().addContent(userId: userId, title: title, content: content) else {
+            guard let json = MomentDao().addMoment(userId: userId, title: title, content: content) else {
                 print("josn为nil")
                 return
             }
@@ -153,10 +154,10 @@ open class NetworkServerManager {
             response.completed()
         }
         
-        // 更新内容
-        routes.add(method: .post, uri: "/contentUpdate") { (request, response) in
-            guard let contentId: String = request.param(name: "contentId") else {
-                print("contentId为nil")
+        // 更新moment
+        routes.add(method: .post, uri: "/updateMoment") { (request, response) in
+            guard let contentId: String = request.param(name: "momentId") else {
+                print("momentId为nil")
                 return
             }
             
@@ -170,7 +171,7 @@ open class NetworkServerManager {
                 return
             }
             
-            guard let json = ContentDao().updateContent(contentId: contentId, title: title, content: content) else {
+            guard let json = MomentDao().updateMoment(momentId: contentId, title: title, content: content) else {
                 print("josn为nil")
                 return
             }
@@ -179,14 +180,14 @@ open class NetworkServerManager {
             response.completed()
         }
         
-        //删除内容
-        routes.add(method: .post, uri: "/contentDelete") { (request, response) in
-            guard let contentId: String = request.param(name: "contentId") else {
+        // 删除moment
+        routes.add(method: .post, uri: "/deleteMoment") { (request, response) in
+            guard let momentId: String = request.param(name: "momentId") else {
                 print("contentId为nil")
                 return
             }
             
-            guard let json = ContentDao().deleteContent(contentId: contentId) else {
+            guard let json = MomentDao().deleteMoment(momentId: momentId) else {
                 print("josn为nil")
                 return
             }
@@ -195,17 +196,18 @@ open class NetworkServerManager {
             response.completed()
         }
         
+        // 根目录
         routes.add(method: .get, uri: "/", handler: {
             request, response in
             response.setHeader(.contentType, value: "text/html")
-            response.appendBody(string: "<html><title>Hello!</title><body><h3>Hello, Swift-Perfect!</h3></body></html>")
+            response.appendBody(string: "<html><title>Hello!</title><body><h3>欢迎访问Ossey服务</h3></body></html>")
             response.completed()
         })
         
+        // 获取所有用户信息，测试用
         routes.add(method: .get, uri: "/account") { (request, response) in
             
             let result = UserDao().queryAllUserResult()
-//            let jsonString = self.baseResponseBodyJSONData(status: 200, message: "成功", data: result)
             response.setBody(string: result!)
             response.completed()
         }
@@ -258,7 +260,7 @@ open class NetworkServerManager {
         response.setBody(string: convertJons(params:request.params()))
         response.completed()
     }
-    //MARK: - 获取请求参数:
+    // MARK: - 获取请求参数:
     func convertJons(params: [(String, String)]) -> String{
         var jsonDic:[String:String] = [:]
         for item in params {
@@ -273,7 +275,7 @@ open class NetworkServerManager {
     }
 
     
-    /// MARK: 通用响应格式
+    // MARK: 通用响应格式
     func baseResponseBodyJSONData(status: Int, message: String, data: Any!) -> String {
         
         var result = Dictionary<String, Any>()

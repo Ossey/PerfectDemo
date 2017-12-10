@@ -79,13 +79,13 @@ class DataBaseConnect {
     }
     
     
-    /// 选择数据库Scheme
+    // MARK: - 选择数据库Scheme
     ///
     /// - Parameter name: Scheme名
     func selectDataBase(name: String){
         // 选择具体的数据Schema
         guard connect.selectDatabase(named: name) else {
-            print("数据库选择失败。错误代码：\(connect.errorCode()) 错误解释：\(connect.errorMessage())")
+            print("选择数据库失败，code：\(connect.errorCode()) info：\(connect.errorMessage())")
             return
         }
         
