@@ -31,6 +31,8 @@ struct OSConstans {
         let queryUserInfoByUserID = "\(HTTPRequestBaseURLString)" + "/queryUserInfoByUserID"
         // moment列表
         let momentList = "\(HTTPRequestBaseURLString)" + "/momentList"
+        // 发送moment
+        let sendMoment = "\(HTTPRequestBaseURLString)" + "/sendMoment"
         
     }
     

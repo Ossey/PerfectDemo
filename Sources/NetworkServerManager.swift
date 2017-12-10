@@ -156,8 +156,8 @@ open class NetworkServerManager {
             response.completed()
         }
         
-        // 添加moment
-        routes.add(method: .post, uri: "/addMoment") { (request, response) in
+        // 发送moment
+        routes.add(method: .post, uri: "/sendMoment") { (request, response) in
             guard let userId: String = request.param(name: "userId") else {
                 print("userId为nil")
                 return

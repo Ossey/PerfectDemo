@@ -72,4 +72,38 @@ final class MomentAPI: NSObject {
             handler(moments, nil)
         }
     }
+    
+    
+    /// 发送moment到服务器
+    ///
+    /// - Parameters:
+    ///   - moment: <#moment description#>
+    ///   - handler: <#handler description#>
+    public func sendMomnt(moment: Moment, handler: CompletionHandler?) {
+        guard let handler = handler else {
+            return
+        }
+        guard let loginUserId = AccountManager.shared.loginUser?.userId else {
+            handler(nil, nil)
+            return
+        }
+        
+        // 发送moment的userId必须是当前登录的用户的userId
+        if loginUserId != moment.userId {
+            handler(nil, nil)
+            return
+        }
+        
+        let urlString = OSConstans.HttpRequestURL().sendMoment
+        let parameters = NSDictionary(objects: [loginUserId, moment.title ?? "", moment.content ?? ""], forKeys: ["userId" as NSCopying, "title" as NSCopying, "content" as NSCopying])
+        HttpRequestHelper.request(method: .post, url: urlString, parameters: parameters) { (response, error) in
+            
+            if let error = error {
+                handler(nil, error)
+                return
+            }
+            
+            
+        }
+    }
 }

@@ -342,7 +342,36 @@ class MomentDao: BaseDao {
             response[REQUEST_RESULT_MESSAGE_KEY] = "创建\(title)失败"
         } else {
             print("插入成功")
+            // 在当前会话过程中保存查询结果
+            let results = DataBaseHelper.instance.mysql.storeResults()!
+            var dic = [String:String]() //创建一个字典数组用于存储结果
+            if results.numRows() == 0 {
+                response[REQUEST_RESULT_KEY] = REQUEST_RESULT_FAILURE_VALUE
+                response[REQUEST_RESULT_MESSAGE_KEY] = "用户名或密码错误，请重新输入！"
+                print("\(statement)用户名或密码错误，请重新输入")
+            }
+            else {
+                results.forEachRow(callback: { (row) in
+                    if let id = row[0] {
+                        dic["momentId"] = "\(id)"
+                    }
+                    if let title = row[1] {
+                        dic["title"] = "\(title)"
+                    }
+                    if let content = row[2] {
+                        dic["content"] = "\(content)"
+                    }
+                    
+                    if let userId = row[3] {
+                        dic["userId"] = "\(userId)"
+                    }
+                    if let create_time = row[4] {
+                        dic["create_time"] = "\(create_time)"
+                    }
+                })
+            }
             response[REQUEST_RESULT_KEY] = REQUEST_RESULT_SUCCESS_VALUE
+            response[REQUEST_RESULT_LIST_KEY] = dic
         }
         
         guard let josn = try? response.jsonEncodedString() else {
