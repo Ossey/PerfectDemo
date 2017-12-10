@@ -1565,7 +1565,7 @@
 			path = ".build/checkouts/Perfect-CZlib-src.git--8503750424862953877/PerfectCZlib";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1574,7 +1574,6 @@
 				OBJ_12 /* Dependencies */,
 				OBJ_359 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_65 /* include */ = {
@@ -2060,7 +2059,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_359 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

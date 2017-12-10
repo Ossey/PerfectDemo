@@ -7,7 +7,7 @@
 
 import PerfectMySQL
 
-/// MARK: 数据库信息
+// MARK: 数据库信息
 let mysql_database = "PerfecDemo"
 let table_account = "account_level"
 
@@ -38,7 +38,7 @@ open class DataBaseHelper {
     }
     
     
-    /// MARK: 执行SQL语句
+    // MARK: 执行SQL语句
     /// 执行SQL语句
     ///
     /// - Parameter sql: sql语句

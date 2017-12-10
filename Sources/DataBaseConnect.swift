@@ -5,7 +5,7 @@
 //  Created by swae on 2017/12/9.
 //
 
-/// MARK: 数据库信息
+// MARK: 数据库信息
 let mysql_host = "127.0.0.1"
 let mysql_port = "3306"
 let mysql_user = "root"

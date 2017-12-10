@@ -24,7 +24,7 @@ open class NetworkServerManager {
         
         
     }
-    /// MARK: 开启服务
+    // MARK: 开启服务
     open func startServer() {
         
         do {
@@ -38,7 +38,7 @@ open class NetworkServerManager {
         
     }
     
-    /// MARK: 注册路由
+    // MARK: 注册路由
     fileprivate func configure(routes: inout Routes) {
         
         // 根据用户名查询用户ID
@@ -209,7 +209,7 @@ open class NetworkServerManager {
             response.completed()
         }
         
-        /// MARK: - 文件上传
+        // MARK: - 文件上传
         /// 创建路径用于存储已上传文件
         let fileDir = Dir(Dir.workingDir.path + "files")
         do {
@@ -290,7 +290,7 @@ open class NetworkServerManager {
         
     }
     
-    /// MARK: 404过滤（定制404页面）
+    // MARK: 404过滤（定制404页面）
     struct Filter404: HTTPResponseFilter {
         
         func filterBody(response: HTTPResponse, callback: (HTTPResponseFilterResult) -> ()) {
